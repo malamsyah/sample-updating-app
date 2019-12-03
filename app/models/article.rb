@@ -1,3 +1,3 @@
-class Article < ActiveRecord::Base
+class Article < ApplicationRecord
   belongs_to :user
 end

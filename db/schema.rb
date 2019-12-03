@@ -1,4 +1,3 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -16,16 +15,15 @@ ActiveRecord::Schema.define(version: 20191203074010) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "articles", force: :cascade do |t|
+  create_table "articles", id: :bigserial, force: :cascade do |t|
     t.integer  "user_id"
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_articles_on_user_id", using: :btree
   end
 
-  add_index "articles", ["user_id"], name: "index_articles_on_user_id", using: :btree
-
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :bigserial, force: :cascade do |t|
     t.integer  "age"
     t.string   "name"
     t.datetime "created_at", null: false

@@ -9,12 +9,8 @@ class UserTest < ActiveSupport::TestCase
       if sample_user.save
         puts "Saving"
       end
-      sample_user
     end
 
-    puts sample_user.id
-    puts sample_user.articles.first.user_id
-
-    assert_equal sample_user.id, User.all.last.id, "id should be equal"
+    assert_equal sample_user.id, Article.all.last.user_id, "id should be equal"
   end
 end
